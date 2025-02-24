@@ -3,7 +3,7 @@ import {products} from '../frontend_assets/assets';
 
 export const ShopContext = createContext();
 
-const ShopContextProvider = () =>{
+const ShopContextProvider = (props) =>{
 
     const currency = '₹'; //Unicode representation of rupee symbol is [const currency = '\u20B9'];
     const delivery_fee = 30;
