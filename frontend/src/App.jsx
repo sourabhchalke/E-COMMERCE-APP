@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
-    <div className="p-4 text-white sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="p-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
     <Navbar/>
 

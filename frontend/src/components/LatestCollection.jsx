@@ -8,11 +8,10 @@ function LatestCollection() {
 
   const [latestProducts, setLatestProducts] = useState([]);
 
-  const [a,setA]=useState(0);
-  const [b,serB]=useState(10);
+  
 
   useEffect(() => {
-    setLatestProducts(products.slice(a, b));
+    setLatestProducts(products.slice(0,10));
   }, []);
 
   console.log(products);
@@ -46,8 +45,7 @@ function LatestCollection() {
         })}
       </div>
 
-      <p
-        onClick={() => setLatestProducts(products.slice(a, b))} className="text-black cursor-pointer">Next</p>
+      
     </div>
   );
 }
