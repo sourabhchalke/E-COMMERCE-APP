@@ -9,10 +9,14 @@ import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import PlaceOrder from "./pages/PlaceOrder.jsx";
 import Orders from "./pages/Orders.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
-    <div className="p-6 bg-blue-500 text-white sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="p-4 text-white sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+
+    <Navbar/>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
