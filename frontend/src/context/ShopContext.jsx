@@ -14,6 +14,8 @@ const ShopContextProvider = (props) =>{
         delivery_fee
     }
 
+    console.log(props.children);
+
     return (
         <ShopContext.Provider value={value}>
             {props.children}
