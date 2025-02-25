@@ -12,60 +12,75 @@ function Collection() {
 
   const [filterProducts, setFilterProducts] = useState([]);
 
-  const [category,setCategory] = useState([]);
-  const [subCategory,setSubCategory]=useState([]);
+  const [category, setCategory] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
 
-  const toggleCategory=(e)=>{
+  const [sortType,setSortType]=useState("relavent");
 
-    if(category.includes(e.target.value)){
-        setCategory(prev=> prev.filter(item => item !== e.target.value));
-    }else{
-      setCategory(prev=> [...prev,e.target.value]);
+  const toggleCategory = (e) => {
+    if (category.includes(e.target.value)) {
+      setCategory((prev) => prev.filter((item) => item !== e.target.value));
+    } else {
+      setCategory((prev) => [...prev, e.target.value]);
     }
+  };
 
-  }
-
-  const toggleSubCategory=(e)=>{
-
-    if(subCategory.includes(e.target.value)){
-        setSubCategory(prev=> prev.filter(item => item !== e.target.value));
-    }else{
-      setSubCategory(prev=> [...prev,e.target.value]);
+  const toggleSubCategory = (e) => {
+    if (subCategory.includes(e.target.value)) {
+      setSubCategory((prev) => prev.filter((item) => item !== e.target.value));
+    } else {
+      setSubCategory((prev) => [...prev, e.target.value]);
     }
-
-  }
+  };
 
   useEffect(() => {
     setFilterProducts(products);
   }, []);
 
-  // useEffect(()=>{
-  //   console.log(category);
-  // },[category]);
-
-  // useEffect(()=>{
-  //   console.log(subCategory);
-  // },[subCategory]);
 
   // Filter
-  const applyFilter=()=>{
-
+  const applyFilter = () => {
     let productsCopy = products.slice();
 
-    if(category.length>0){
-        productsCopy = productsCopy.filter(item => category.includes(item.category));
+    if (category.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        category.includes(item.category)
+      );
     }
 
-    if(subCategory.length>0){
-      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
+    if (subCategory.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        subCategory.includes(item.subCategory)
+      );
     }
-    
+
     setFilterProducts(productsCopy);
+  };
 
-  }
-  useEffect(()=>{
+  // Sorting product based on Price[Ascending,Decending]
+  const sortProduct = () => {
+    let fpCopy = filterProducts.slice();
+
+    switch (sortType) {
+      case "low-high":
+        setFilterProducts(fpCopy.sort((a, b) => a.price - b.price));
+        break;
+      case "high-low":
+        setFilterProducts(fpCopy.sort((a, b) => b.price - a.price));
+        break;
+      default:
+        applyFilter();
+        break;
+    }
+  };
+
+  useEffect(() => {
     applyFilter();
-  },[category,subCategory]);
+  }, [category, subCategory]);
+
+  useEffect(()=>{
+    sortProduct();
+  },[sortType]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 pt-10 border-t ">
@@ -92,15 +107,30 @@ function Collection() {
           <p className="text-sm mb-3 font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 font-light text-gray-700">
             <p className="flex gap-2">
-              <input type="checkbox" className="w-3" value={"Men"} onChange={toggleCategory} />
+              <input
+                type="checkbox"
+                className="w-3"
+                value={"Men"}
+                onChange={toggleCategory}
+              />
               Men
             </p>
             <p className="flex gap-2">
-              <input type="checkbox" className="w-3" value={"Women"} onChange={toggleCategory} />
+              <input
+                type="checkbox"
+                className="w-3"
+                value={"Women"}
+                onChange={toggleCategory}
+              />
               Women
             </p>
             <p className="flex gap-2">
-              <input type="checkbox" className="w-3" value={"Kids"} onChange={toggleCategory} />
+              <input
+                type="checkbox"
+                className="w-3"
+                value={"Kids"}
+                onChange={toggleCategory}
+              />
               Kids
             </p>
           </div>
@@ -115,15 +145,30 @@ function Collection() {
           <p className="text-sm mb-3 font-medium">SUB-CATEGORIES</p>
           <div className="flex flex-col gap-2 font-light text-gray-700">
             <p className="flex gap-2">
-              <input type="checkbox" className="w-3" value={"Topwear"} onChange={toggleSubCategory} />
+              <input
+                type="checkbox"
+                className="w-3"
+                value={"Topwear"}
+                onChange={toggleSubCategory}
+              />
               Top-Wear
             </p>
             <p className="flex gap-2">
-              <input type="checkbox" className="w-3" value={"Bottomwear"} onChange={toggleSubCategory} />
+              <input
+                type="checkbox"
+                className="w-3"
+                value={"Bottomwear"}
+                onChange={toggleSubCategory}
+              />
               Bottom-Wear
             </p>
             <p className="flex gap-2">
-              <input type="checkbox" className="w-3" value={"Winterwear"} onChange={toggleSubCategory} />
+              <input
+                type="checkbox"
+                className="w-3"
+                value={"Winterwear"}
+                onChange={toggleSubCategory}
+              />
               Winter-Wear
             </p>
           </div>
@@ -137,11 +182,12 @@ function Collection() {
           <Title text1={"ALL"} text2={"COLLECTIONS"} />
           {/* Product Sort */}
           <select
+            onChange={(e)=>setSortType(e.target.value)}
             className="border-2 border-gray-300 text-sm px-2"
             name=""
             id=""
           >
-            <option value="relavant">Sort by : Relevant</option>
+            <option value="relavent">Sort by : Relevant</option>
             <option value="low-high">Sort by : Low to High</option>
             <option value="high-low">Sort by : High to Low</option>
           </select>
