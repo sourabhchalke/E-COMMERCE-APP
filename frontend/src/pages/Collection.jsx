@@ -39,15 +39,34 @@ function Collection() {
     setFilterProducts(products);
   }, []);
 
-  useEffect(()=>{
-    console.log(category);
-  },[category]);
+  // useEffect(()=>{
+  //   console.log(category);
+  // },[category]);
 
-  useEffect(()=>{
-    console.log(subCategory);
-  },[subCategory]);
+  // useEffect(()=>{
+  //   console.log(subCategory);
+  // },[subCategory]);
 
-  
+  // Filter
+  const applyFilter=()=>{
+
+    let productsCopy = products.slice();
+
+    if(category.length>0){
+        productsCopy = productsCopy.filter(item => category.includes(item.category));
+    }
+
+    if(subCategory.length>0){
+      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
+    }
+    
+    setFilterProducts(productsCopy);
+
+  }
+  useEffect(()=>{
+    applyFilter();
+  },[category,subCategory]);
+
   return (
     <div className="flex flex-col sm:flex-row gap-1 pt-10 border-t ">
       {/* Left Side of Collection */}
