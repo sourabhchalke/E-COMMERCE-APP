@@ -104,7 +104,17 @@ function Product() {
         </div>
       </div>
 
-      
+      {/* -----Description & Review Section----- */}
+      <div className="mt-20">
+                <div className="flex gap-3">
+                  <b className="border px-5 py-3 text-sm">Description</b>
+                  <p className="border px-5 py-3 text-sm">Reviews (122)</p>
+                </div>
+                <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita pariatur laboriosam praesentium debitis qui ipsa. Libero, praesentium corporis. Quibusdam nam quidem sunt sapiente ipsum quia atque ut? Eaque, quisquam error!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi similique suscipit odit laboriosam veniam soluta dolorem ipsam? Beatae necessitatibus accusamus sequi animi. Illum laudantium sint sit vel odio dolore nobis.</p>
+                </div>
+              </div>
       
     </div>
   ) : (
