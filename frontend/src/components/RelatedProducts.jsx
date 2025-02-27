@@ -34,7 +34,7 @@ function RelatedProducts({ category, subCategory }) {
           return (
             <ProductItem
               key={index}
-              id={item._idcd}
+              id={item._id}
               image={item.image}
               name={item.name}
               price={item.price}
