@@ -70,6 +70,26 @@ const updateQuantity=async(itemId,size,quantity)=>{
     setCartItems(cartData);
 }
 
+// Cart Total
+ const getCartAmount=()=>{
+    let totalAmount =0;
+
+    for(const items in cartItems){
+        let itemInfo = products.find((product)=>product._id === items);
+
+        for(const item in cartItems[items]){
+            try{
+                if(cartItems[items][item]>0){
+                    totalAmount += itemInfo.price * cartItems[items][item];
+                }
+            }catch(error){
+
+            }
+        }
+    }
+    return totalAmount;
+ }
+
     const value = {
         products,
         currency,
@@ -81,7 +101,8 @@ const updateQuantity=async(itemId,size,quantity)=>{
         cartItems,
         addToCart,
         getCartCount,
-        updateQuantity
+        updateQuantity,
+        getCartAmount
     }
 
     return (
