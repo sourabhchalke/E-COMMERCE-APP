@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import { assets } from "../frontend_assets/assets";
+import { ShopContext } from "../context/ShopContext";
 
 function PlaceOrder() {
 
   const [method,setMethod]=useState('cod');
+  const {navigate} = useContext(ShopContext);
 
   return (
     <div className="flex justify-between items-center">
@@ -91,7 +93,9 @@ function PlaceOrder() {
             </div>
           </div>
 
-        
+        <div className="w-full mt-6 text-end">
+          <button onClick={()=> navigate('/orders')} className="bg-black text-white py-3 px-14 text-sm">PLACE ORDER</button>
+        </div>
 
         </div>
       </div>
