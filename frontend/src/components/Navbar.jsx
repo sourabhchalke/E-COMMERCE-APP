@@ -10,6 +10,7 @@ const Navbar = () => {
 
   const {setShowSearch,getCartCount} = useContext(ShopContext);
 
+
   return (
     <div className="flex items-center justify-between py-2 font-medium">
       
@@ -38,11 +39,11 @@ const Navbar = () => {
         <img onClick={()=>setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
 
         <div className="group relative">
-          <img
+          <Link to="/login"><img
             className="w-5 cursor-pointer"
             src={assets.profile_icon}
             alt=""
-          />
+          /></Link>
 
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
             <div className="flex flex-col text-gray-600 bg-slate-300 gap-2 py-3 px-5 w-36">
