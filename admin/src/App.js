@@ -1,11 +1,18 @@
 
 import './App.css';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
-    <div className="App">
-      <div className="text-red-500 mt-28">Hello</div>
-      <div>Hello</div>
+    <div className="bg-gray-50 min-h-screen">
+      <>
+        <Navbar />
+        <hr />
+        <div className="flex w-full">
+          <Sidebar/>
+        </div>
+      </>
     </div>
   );
 }
