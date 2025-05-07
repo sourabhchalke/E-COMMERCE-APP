@@ -6,11 +6,22 @@ import { Routes,Route } from 'react-router-dom';
 import Add from './pages/Add';
 import List from './pages/List';
 import Orders from './pages/Orders';
+import { useState } from 'react';
+import Login from './components/Login';
 
 function App() {
+
+  const [token,setToken] = useState("");
+
   return (
     <div className="bg-gray-50 min-h-screen">
-      <>
+
+    {/* Checking If user is authorized or not */}
+
+    { token === "" 
+    ? <Login/>  
+    :
+     <>
         <Navbar />
         <hr />
         <div className="flex w-full">
@@ -23,7 +34,8 @@ function App() {
             </Routes>
           </div>
         </div>
-      </>
+      </> }
+      
     </div>
   );
 }
