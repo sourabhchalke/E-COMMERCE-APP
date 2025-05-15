@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../frontend_assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
-import { toast } from "react-toastify";
+
 
 
 function Product() {
