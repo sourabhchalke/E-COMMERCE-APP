@@ -57,6 +57,8 @@ const Add = ({token}) => {
         setImage3(false);
         setImage4(false);
         setPrice('');
+        setBestseller(false);
+        setSizes([]);
       }else{
         toast.error(response.data.message);
       }
@@ -121,7 +123,7 @@ const Add = ({token}) => {
         <div>
           <p className="mb-2">Product Category</p>
           <select className="w-full px-3 py-2" name="" id="" onChange={(e)=> setCategory(e.target.value)}>
-            <option value="Male">Male</option>
+            <option value="Men">Men</option>
             <option value="Women">Women</option>
             <option value="Kids">Kids</option>
           </select>
