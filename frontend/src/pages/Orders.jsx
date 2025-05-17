@@ -33,6 +33,7 @@ function Orders() {
       }
 
     } catch (error) {
+      console.log(error);
       
     }
   }
@@ -54,13 +55,13 @@ function Orders() {
                 <img className='w-16 sm:w-20' src={item.image[0]} alt="" />
                 <div>
                   <p className='sm:text-base font-medium'>{item.name}</p>
-                  <div className='flex items-center gap-3 mt-2 text-base text-gray-700'>
+                  <div className='flex items-center gap-3 mt-1 text-base text-gray-700'>
                     <p className='text-lg'>{currency}{item.price}</p>
                     <p>Quantity : {item.quantity}</p>
                     <p>Size : {item.size}</p>
                   </div>
-                  <p className='mt-2'>Date : <span className='text-gray-700'>{new Date(item.date).toDateString()}</span></p>
-                  <p className='mt-2'>Payment : <span className='text-gray-700'>{item.paymentMethod}</span></p>
+                  <p className='mt-1'>Date : <span className='text-gray-700'>{new Date(item.date).toDateString()}</span></p>
+                  <p className='mt-1'>Payment : <span className='text-gray-700'>{item.paymentMethod}</span></p>
                 </div>
               </div>
 
