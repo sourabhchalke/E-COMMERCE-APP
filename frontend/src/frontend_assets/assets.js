@@ -70,8 +70,8 @@ import support_img from './support_img.png'
 import menu_icon from './menu_icon.png'
 import about_img from './about_img.png'
 import contact_img from './contact_img.png'
-import gpay_logo from './gpay_logo.png'
-import phonepe_logo from './phonepe_logo.png'
+import stripe from './stripe_logo.png';
+import razorpay from './razorpay_logo.png';
 import cross_icon from './cross_icon.png'
 
 export const assets = {
@@ -90,8 +90,8 @@ export const assets = {
     menu_icon,
     about_img,
     contact_img,
-    gpay_logo,
-    phonepe_logo,
+    stripe,
+    razorpay,
     cross_icon
 }
 

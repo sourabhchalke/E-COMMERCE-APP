@@ -217,7 +217,7 @@ function PlaceOrder() {
                   method === "stripe" ? "bg-green-500" : ""
                 }`}
               ></p>
-              <img className="h-8 mx-4" src={assets.gpay_logo} alt="" />
+              <img className="h-4 mx-2" src={assets.stripe} alt="" />
             </div>
             <div
               onClick={() => setMethod("phonepe")}
@@ -228,7 +228,7 @@ function PlaceOrder() {
                   method === "phonepe" ? "bg-green-500" : ""
                 }`}
               ></p>
-              <img className="h-12" src={assets.phonepe_logo} alt="" />
+              <img className="h-4" src={assets.razorpay} alt="" />
             </div>
             <div
               onClick={() => setMethod("cod")}
