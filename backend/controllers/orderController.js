@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 // Gateway Initialize
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-console.log("Stripe : ",stripe);
+// console.log("Stripe : ",stripe);
 
 // Global Variables
 const currency = 'inr';
