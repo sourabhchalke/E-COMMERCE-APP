@@ -11,7 +11,6 @@ import Login from './components/Login';
 import { ToastContainer } from 'react-toastify';
 
 export const backendUrl = process.env.REACT_APP_BACKEND_URL;
-console.log("URL : ",backendUrl);
 
 export const currency = '₹';
 
