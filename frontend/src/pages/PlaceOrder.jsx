@@ -6,8 +6,6 @@ import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const RazorpayKeyId = process.env.REACT_APP_RAZORPAY_KEY_ID;
-console.log("Razorpay : ",RazorpayKeyId);
 
 function PlaceOrder() {
   const [method, setMethod] = useState("cod");

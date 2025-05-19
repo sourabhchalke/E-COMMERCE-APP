@@ -4,7 +4,7 @@ import Title from "./Title";
 import ProductItem from "./ProductItem";
 
 function LatestCollection() {
-  const { products, currency, delivery_fee } = useContext(ShopContext);
+  const { products } = useContext(ShopContext);
 
   const [latestProducts, setLatestProducts] = useState([]);
 
@@ -14,9 +14,6 @@ function LatestCollection() {
     setLatestProducts(products.slice(0,10));
   }, [products]);
 
-  console.log(products);
-  console.log(currency);
-  console.log(delivery_fee);
 
   return (
     <div className="my-10">
